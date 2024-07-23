@@ -34,7 +34,7 @@ export default async function runTestFlow(startAtTestNb?: number) {
     try {
 
         const nodeModuleDir = __dirname
-        const childProcessDir = Path.join(nodeModuleDir, './dist/runTestCliChildProcess.js')
+        const childProcessDir = Path.join(nodeModuleDir, './runTestCliChildProcess.js')
 
         await execWaitForOutput([
             `bun ${childProcessDir.replace(/ /g, '\\ ')}`,
