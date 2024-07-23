@@ -55,7 +55,7 @@ export default async function runTestFlow() {
     const testFlowPath2 = path.resolve(process.cwd(), testFlowPath)
     const configPath2 = path.resolve(process.cwd(), configPath)
 
-    const restTest = await import('rest-test')
+    const restTest = await import('./index.js')
     const scenario = await import(testFlowPath2)
     const restTestConfig = await import(configPath2)
 

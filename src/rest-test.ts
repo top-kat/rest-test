@@ -1,4 +1,4 @@
-/// <reference path="../../../packages/global-shared/global.d.ts" />
+
 export * from './rest-test-types'
 import { square } from './rest-test-ascii-display'
 export * from './rest-test-runner'
