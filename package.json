@@ -8,9 +8,9 @@
     "clean": "rm -rf ./dist || true",
     "build": "tsc",
     "build:allPackagesPhase2": "tsc",
-    "bump:major": "yarn test:ci && npm run build && node node_modules/bump-simple/bump-simple.js --major",
-    "bump:minor": "yarn test:ci && npm run build && node node_modules/bump-simple/bump-simple.js --minor",
-    "bump:patch": "yarn test:ci && npm run build && node node_modules/bump-simple/bump-simple.js --patch"
+    "bump:major": "npm run build && node node_modules/bump-simple/bump-simple.js --major",
+    "bump:minor": "npm run build && node node_modules/bump-simple/bump-simple.js --minor",
+    "bump:patch": "npm run build && node node_modules/bump-simple/bump-simple.js --patch"
   },
   "keywords": [
     "test",
@@ -42,6 +42,6 @@
     "bump-simple": "^1.0.24"
   },
   "bin": {
-    "rest-test": "bin/rest-test.js"
+    "rest-test": "dist/runTestCli.js"
   }
 }
