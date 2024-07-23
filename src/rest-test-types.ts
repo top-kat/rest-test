@@ -1,5 +1,4 @@
 
-import { ServerConfig } from 'core-backend'
 
 export type RestMethod = 'POST' | 'GET' | 'PATCH' | 'DELETE'
 
@@ -103,13 +102,14 @@ export interface RestTestConfig<
     ApiKeys extends string = any,
     TestEnv extends TestEnvBase = any,
     TestUserNames extends string = any,
-    ConnexionInfos extends Record<string, any> = any
+    ConnexionInfos extends Record<string, any> = any,
+    ApiKeysType extends Record<string, any> = any
 > {
     // TODO document jsdoc
     displayIntroTimeout: number
     mode: 'jsonRpc' | 'rest'
     disableSolo?: boolean
-    apiKeys: Record<ApiKeys, ServerConfig['apiKeys'][string]>
+    apiKeys: Record<ApiKeys, ApiKeysType>
     servers: {
         default: string // should be present, main server
         [serverNameShortcut: string]: string
@@ -134,5 +134,10 @@ export interface RestTestConfig<
         headers: Record<string, any>
     }): any
     /** triggered AFTER every tests */
-    onAfterTest?(): any
+    onAfterTest?(conf: {
+        env: TestEnv,
+        as?: TestUserNames | ConnexionInfos,
+        apiKey?: ApiKeys,
+        headers: Record<string, any>
+    }): any
 }

@@ -1,13 +1,16 @@
 {
   "name": "rest-test",
   "version": "1.0.0",
-  "description": "The best way to test rest api in the CLI",
+  "description": "Rest test is an automated tool to help test an API in the cli. It as been made as an alternative to postman to simplify git workflow and assertions/readability",
   "main": ".",
   "types": "index.ts",
   "scripts": {
     "clean": "rm -rf ./dist || true",
     "build": "tsc",
-    "build:allPackagesPhase2": "tsc"
+    "build:allPackagesPhase2": "tsc",
+    "bump:major": "yarn test:ci && npm run build && node node_modules/bump-simple/bump-simple.js --major",
+    "bump:minor": "yarn test:ci && npm run build && node node_modules/bump-simple/bump-simple.js --minor",
+    "bump:patch": "yarn test:ci && npm run build && node node_modules/bump-simple/bump-simple.js --patch"
   },
   "keywords": [
     "test",
@@ -26,8 +29,6 @@
   "dependencies": {
     "argv": "^0.0.3",
     "axios": "^1.6.5",
-    "core-backend": "*",
-    "eslint-config-root": "*",
     "fs-extra": "^11.1.1",
     "good-cop": "1.2.9",
     "inquirer": "9.2.12",
@@ -35,7 +36,12 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
+    "@types/node": "^20.11.16",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
-    "@typescript-eslint/parser": "^6.6.0"
+    "@typescript-eslint/parser": "^6.6.0",
+    "bump-simple": "^1.0.24"
+  },
+  "bin": {
+    "rest-test": "bin/rest-test.js"
   }
 }

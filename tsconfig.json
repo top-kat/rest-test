@@ -1,15 +1,30 @@
 {
-    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
+        "lib": [
+            "es2023"
+        ],
+        "module": "node16",
+        "target": "es2022",
+        "moduleResolution": "node16",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "allowJs": false,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "noImplicitAny": false,
+        "noImplicitThis": true,
+        "declaration": true,
+        "sourceMap": true,
         "outDir": "dist",
+        "types": [
+            "node"
+        ],
         "baseUrl": "./",
     },
     "include": [
-        "./src/**/*",
-        "runTestCli.ts"
+        "./**/*"
     ],
     "exclude": [
-        "./templates/**/*",
         "./dist/**/*",
         "index.js"
     ]

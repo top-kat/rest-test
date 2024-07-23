@@ -278,7 +278,7 @@ export const testRunner = {
 
                 if (testRunner.config.afterTest) await testRunner.config.afterTest(actualTestNb, env)
 
-                await onAfterTest()
+                await onAfterTest({ as: realAs, env, apiKey: stringApiKey, headers: headers || {} })
 
                 return 'ok' as const
 
