@@ -1,8 +1,8 @@
+#!/usr/bin/env node
 
-
-import inquirer from 'inquirer'
 import argv from 'argv'
 import { intro } from './src/rest-test-ascii-display'
+import Path from 'path'
 
 import { C } from 'topkat-utils'
 import { execWaitForOutput } from 'topkat-utils/backend'
@@ -32,8 +32,12 @@ let lastTestNb = 0
 
 export default async function runTestFlow(startAtTestNb?: number) {
     try {
+
+        const nodeModuleDir = __dirname
+        const childProcessDir = Path.join(nodeModuleDir, './dist/runTestCliChildProcess.js')
+
         await execWaitForOutput([
-            `bun ../../packages/rest-test/runTestCliChildProcess.ts`,
+            `node ${childProcessDir}`,
             `--configPath=${cliOptions.configPath}`,
             `--testFlowPath=${cliOptions.testFlowPath}`,
             cliOptions.filter ? `--filter=${cliOptions.filter}` : '',
@@ -65,6 +69,7 @@ export default async function runTestFlow(startAtTestNb?: number) {
 runTestFlow()
 
 async function onErrorCli(actualTestNb: number, isCi = false) {
+    const inquirer = await import('inquirer') // shit modulovitch mess
     if (isCi) throw new Error('TEST FLOW FAILED')
     const choice = await inquirer.prompt({
         type: 'list',
