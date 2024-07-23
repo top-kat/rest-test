@@ -20,9 +20,11 @@ Rest test is an automated tool to help test an API in the cli. It as been made a
 
 This package is used in production code but ⚠️ **open sourcing is in progress** ⚠️. Please feel free to get in touch if you are interrested (via creating an issue for example)
 
-# start
+# Installation
 
-Here is the start script in package.json
+You have to install bun for it to work
+
+Here is an example start script in package.json
 
 ```
 rest-test --configPath=./path/to/my/config --testFlowPath=./path/to/my/test/flow
