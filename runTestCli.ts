@@ -71,7 +71,7 @@ runTestFlow()
 async function onErrorCli(actualTestNb: number, isCi = false) {
     const inquirer = await import('inquirer') // shit modulovitch mess
     if (isCi) throw new Error('TEST FLOW FAILED')
-    const choice = await inquirer.prompt({
+    const choice = await inquirer.default.prompt({
         type: 'list',
         name: 'action',
         message: 'What to do next ?',
