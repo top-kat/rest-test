@@ -1,0 +1,41 @@
+{
+  "name": "rest-test",
+  "version": "1.0.0",
+  "description": "The best way to test rest api in the CLI",
+  "main": ".",
+  "types": "index.ts",
+  "scripts": {
+    "clean": "rm -rf ./dist || true",
+    "build": "tsc",
+    "build:allPackagesPhase2": "tsc"
+  },
+  "keywords": [
+    "test",
+    "api",
+    "testing",
+    "rest",
+    "testing",
+    "rest",
+    "test",
+    "api testing",
+    "cli api testing",
+    "cli testing"
+  ],
+  "author": "topkat",
+  "license": "MIT",
+  "dependencies": {
+    "argv": "^0.0.3",
+    "axios": "^1.6.5",
+    "core-backend": "*",
+    "eslint-config-root": "*",
+    "fs-extra": "^11.1.1",
+    "good-cop": "1.2.9",
+    "inquirer": "9.2.12",
+    "topkat-utils": "1.2.96",
+    "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0"
+  }
+}

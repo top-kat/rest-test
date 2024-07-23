@@ -1,0 +1,16 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "baseUrl": "./",
+    },
+    "include": [
+        "./src/**/*",
+        "runTestCli.ts"
+    ],
+    "exclude": [
+        "./templates/**/*",
+        "./dist/**/*",
+        "index.js"
+    ]
+}
