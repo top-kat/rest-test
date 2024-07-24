@@ -39,7 +39,8 @@
     "@types/node": "^20.11.16",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
-    "bump-simple": "^1.0.24"
+    "bump-simple": "^1.0.24",
+    "typescript-generic-types": "^1.0.0"
   },
   "bin": {
     "rest-test": "dist/runTestCli.js"

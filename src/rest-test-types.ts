@@ -1,5 +1,4 @@
 
-
 export type RestMethod = 'POST' | 'GET' | 'PATCH' | 'DELETE'
 
 export type TestFn<TestEnv, ExpectedReturnType> = (env: TestEnvExtended<TestEnv>) => MaybePromise<ExpectedReturnType>

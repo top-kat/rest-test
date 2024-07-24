@@ -1,6 +1,8 @@
 
-export * from './rest-test-types'
+import 'typescript-generic-types'
 import { square } from './rest-test-ascii-display'
+// EXPORTS
+export * from './rest-test-types'
 export * from './rest-test-runner'
 export * from './rest-test-types'
 
