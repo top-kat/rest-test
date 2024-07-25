@@ -44,5 +44,10 @@
   },
   "bin": {
     "rest-test": "dist/runTestCli.js"
-  }
+  },
+  "files": [
+    "dist/**/*",
+    "*.ts",
+    "*"
+  ]
 }
