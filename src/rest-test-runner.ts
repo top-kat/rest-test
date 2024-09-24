@@ -234,6 +234,7 @@ export const testRunner = {
                             headers,
                             url: fullRoute,
                             data: body,
+                            withCredentials: true,
                         })
                         response = data
                         respStatus = status
