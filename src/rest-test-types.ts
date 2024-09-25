@@ -8,6 +8,12 @@ type TestEnvExtended<TestEnv> = TestEnv & { [k: string]: any }
 
 type Statuses = 200 | 400 | 401 | 402 | 403 | 404 | 409 | 422 | 429 | 500 | 503
 
+type HttpHeaders = {
+    Accept?: string
+    'Content-Type'?: string
+    [k: string]: string
+}
+
 interface Test2<TestUserNames extends string, ConnexionInfos extends Record<string, any>, RestTestConfigType extends RestTestConfig> {
     /** d stands for description and is meant to describe the action / route in the most readable format: d: [403, 'userA', 'create a transaction with more that the maximum amount'] */
     d?:
@@ -19,11 +25,7 @@ interface Test2<TestUserNames extends string, ConnexionInfos extends Record<stri
     svc?: TestFn<RestTestConfigType['env'], any> // , route?: any, main?: any
 
     method?: TestType<RestTestConfigType['env'], RestMethod>
-    headers?: {
-        Accept?: string
-        'Content-Type'?: string
-        [k: string]: string
-    }
+    headers?: TestType<RestTestConfigType['env'], HttpHeaders>
     as?: TestType<RestTestConfigType['env'], TestUserNames | ConnexionInfos | 'public' | 'system'>
     apiKey?: TestType<RestTestConfigType['env'], keyof RestTestConfigType['apiKeys']>
     auth?: TestType<RestTestConfigType['env'], string>

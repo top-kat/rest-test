@@ -141,7 +141,7 @@ export const testRunner = {
             errorMessage,
             server,
             serverUrl: serverUrlRaw,
-            headers = {},
+            headers: headersRaw = {},
             method: methosRaw = testRunner.config.mode === 'rest' ? 'GET' : 'POST',
             body: bodyRaw,
             route,
@@ -174,8 +174,12 @@ export const testRunner = {
         if (waitSecBefore) await waiter(waitSecBefore)
 
         const serverUrl: string = serverUrlRaw ? await parseTestConfigValue(serverUrlRaw, env) : server ? testRunner.config?.servers[server as string] : testRunner.config?.servers?.default
+
         const fullRoute: false | string = route ? urlPathJoin(serverUrl, await parseTestConfigValue(route, env)) : false
+
         const method: RestMethod = await parseTestConfigValue(methosRaw, env)
+
+        const headers = await parseTestConfigValue(headersRaw, env)
 
         const body = params ? { params: await parseTestConfigValue(params, env) } : bodyRaw ? await parseTestConfigValue(bodyRaw, env) : {}
 
