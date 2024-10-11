@@ -367,14 +367,11 @@ async function offlineRetryer(callback) {
             await callback()
             hasConnexionErr = false
         } catch (err) {
-            if (err.name === 'ConnectionRefused') {
+            if (err.name === 'ConnectionRefused' || err.msg.includes('onBeforeAllTests') || err.message.includes('onBeforeAllTests')) {
                 const time = 2000
                 C.warning(false, `CONNEXION REFUSED: waiting ${round(time / 1000, 2)} seconds before retry`)
                 await timeout(time)
-            } else {
-                if (typeof err?.log === 'function') err.log()
-                else C.error(err)
-            }
+            } else throw err
         }
     }
 }
