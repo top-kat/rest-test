@@ -1,6 +1,6 @@
 {
   "name": "rest-test2",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Rest test is an automated tool to help test an API in the cli. It as been made as an alternative to postman to simplify git workflow and assertions/readability",
   "main": ".",
   "types": "index.ts",
