@@ -179,7 +179,7 @@ export const testRunner = {
 
         const method: RestMethod = await parseTestConfigValue(methosRaw, env)
 
-        const headers = await parseTestConfigValue(headersRaw, env)
+        let headers = await parseTestConfigValue(headersRaw, env)
 
         const body = params ? { params: await parseTestConfigValue(params, env) } : bodyRaw ? await parseTestConfigValue(bodyRaw, env) : {}
 
@@ -197,7 +197,9 @@ export const testRunner = {
         }
 
         try {
-            await onBeforeTest({ as: realAs, env, apiKey: stringApiKey, headers: headers || {} })
+            const newHeader = headers ? { ...headers } : {}
+            await onBeforeTest({ as: realAs, env, apiKey: stringApiKey, headers: newHeader })
+            headers = Object.assign({}, newHeader, headers) // override with test values
         } catch (err) {
             C.error(false, 'Error in before test callback')
             throw err
