@@ -373,7 +373,10 @@ async function offlineRetryer(callback) {
                 const time = 2000
                 C.warning(false, `CONNEXION REFUSED: waiting ${round(time / 1000, 2)} seconds before retry`)
                 await timeout(time)
-            } else throw err
+            } else {
+                C.error(err)
+                throw err
+            }
         }
     }
 }
