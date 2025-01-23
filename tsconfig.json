@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "lib": [
-            "es2023"
+            "ES2022"
         ],
         "module": "node16",
         "target": "es2022",
