@@ -151,7 +151,7 @@ export const restTest = {
             lines.push(`Performance NUTRISCORE®: ${medianTimePerRequest < 50 ? C.green('A') : medianTimePerRequest < 80 ? C.green('B') : medianTimePerRequest < 120 ? C.yellow('C') : medianTimePerRequest < 150 ? C.red('D') : C.red('E')}`)
         }
 
-        C.log(square(lines))
+        C.log(square(lines, 49))
 
         return { nbErrors }
     },

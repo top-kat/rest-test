@@ -69,17 +69,17 @@ const pad = (str: string, n: number, char: string) => {
   return str + char.repeat(n - realLength)
 }
 
-export function verticalLine() {
-  return `=`.repeat(width) + '\n'
+export function verticalLine(w?: number) {
+  return `=`.repeat(w ?? width) + '\n'
 }
 
-export function horizontalContainer(content = '') {
-  return `| ${pad(content, width - 3, ' ')}|\n`
+export function horizontalContainer(content = '', w?: number) {
+  return `| ${pad(content, (w ?? width) - 3, ' ')}|\n`
 }
 
-export function square(lines: string | string[]) {
+export function square(lines: string | string[], w?: number) {
   const linesArr = typeof lines === 'string' ? lines.split('\n') : lines
-  return verticalLine() + horizontalContainer() + linesArr.map(l => horizontalContainer(l)).join('') + horizontalContainer() + verticalLine()
+  return verticalLine(w) + horizontalContainer(undefined, w) + linesArr.map(l => horizontalContainer(l, w)).join('') + horizontalContainer(undefined, w) + verticalLine(w)
 }
 
 export const title = square // ALIAS
